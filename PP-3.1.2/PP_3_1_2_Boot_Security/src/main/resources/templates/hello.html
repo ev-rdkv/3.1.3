@@ -1,3 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            text-align: center;
+            padding: 100px;
+        }
+
+        .welcome {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .auth-button {
+            background-color: #14adb6;
+            color: #f8f9fa;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .reg-button {
+            background-color: #14adb6;
+            color: #f8f9fa;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
 <div class="container">
     <div class="welcome">
         <p>Welcome to Hello PAGE!</p>
@@ -5,3 +42,5 @@
     <a th:href="@{/auth/login}" class="auth-button">AUTHENTICATE</a>
     <a th:href="@{/auth/registration}" class="reg-button">REGISTRATE</a>
 </div>
+</body>
+</html>
