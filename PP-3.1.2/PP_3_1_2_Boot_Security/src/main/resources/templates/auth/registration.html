@@ -44,15 +44,15 @@
     </div>
     <form th:method="POST" th:action="@{/auth/registration}" th:object="${user}">
         <input type="text" th:field="*{username}" id="username" class="auth-input" placeholder="Username">
-        <div style="color: #c40019" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">username error
+        <div style="color: #14adb6" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">username error
         </div>
         <br/>
         <input type="password" th:field="*{password}" id="password" class="auth-input" placeholder="Password">
-        <div style="color: #c40019" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password error
+        <div style="color: #14adb6" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password error
         </div>
         <br/>
         <input type="number" th:field="*{age}" id="age" class="auth-input" placeholder="age">
-        <div style="color: #c40019" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">age error</div>
+        <div style="color: #14adb6" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">age error</div>
         <br/>
         <select name="selectedRole" id="selectedRole">
             <option value="ROLE_USER">USER</option>

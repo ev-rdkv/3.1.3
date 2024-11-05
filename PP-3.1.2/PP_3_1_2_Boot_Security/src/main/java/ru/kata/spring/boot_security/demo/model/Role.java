@@ -9,11 +9,8 @@ import javax.validation.constraints.NotEmpty;
 @Table(name = "roles")
 public class Role implements GrantedAuthority {
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotEmpty
-    @Column(name = "role")
     private String role;
 
 

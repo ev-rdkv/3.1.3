@@ -13,6 +13,7 @@ import ru.kata.spring.boot_security.demo.service.RoleService;
 import ru.kata.spring.boot_security.demo.service.UserService;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
@@ -47,7 +48,7 @@ public class AdminController {
     @GetMapping("/new")
     public String newUser(Model model) {
         model.addAttribute("user", new User());
-        model.addAttribute("roles", roleService);
+        model.addAttribute("roles", roleService.getAllRoles());
         return "admin/new";
     }
 
@@ -74,6 +75,8 @@ public class AdminController {
                          @PathVariable("id") Long id,
                          @RequestParam("selectedRole") String selectedRole) {
         user.getRole().add(new Role(selectedRole));
+        List<Role> roles = roleService.getAllRoles();
+        user.setRole(roles);
         userService.updateUser(user, id);
         return "redirect:/admin/index";
     }
