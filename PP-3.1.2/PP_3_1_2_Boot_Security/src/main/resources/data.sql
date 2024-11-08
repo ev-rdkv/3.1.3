@@ -26,9 +26,9 @@ create table if not exists user_roles
 );
 
 INSERT INTO users (id, username, age, password)
-VALUES (1, 'user', 30, 'user');
+VALUES (1, 'user', 30, '$2a$12$kX1kb/NbvmUg9K.8ft3MV.iO844u.QqiKsUEp88sf5HAzzqnXDrdO');
 INSERT INTO users (id, username, age, password)
-VALUES (2, 'admin', 30, 'admin');
+VALUES (2, 'admin', 30, '$2a$12$qIgvRxqtffegPDNIE.dp8OtXN.FQ2cCCSmcoCX0Xnd3XPpu0ioOwG');
 
 alter table user_roles
     add foreign key (user_id) references users (id);
