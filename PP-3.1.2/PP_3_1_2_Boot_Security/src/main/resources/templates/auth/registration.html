@@ -54,7 +54,7 @@
         <input type="number" th:field="*{age}" id="age" class="auth-input" placeholder="age">
         <div style="color: #14adb6" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">age error</div>
         <br/>
-        <select name="selectedRole" id="selectedRole">
+        <select name="selectedRole" multiple id="selectedRole">
             <option value="ROLE_USER">USER</option>
             <option value="ROLE_ADMIN">ADMIN</option>
         </select>

@@ -4,6 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.List;
 
 @Entity
 @Table(name = "roles")
@@ -50,4 +51,5 @@ public class Role implements GrantedAuthority {
     public String getAuthority() {
         return role;
     }
+
 }

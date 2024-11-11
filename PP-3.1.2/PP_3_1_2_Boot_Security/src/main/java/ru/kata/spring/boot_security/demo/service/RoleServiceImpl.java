@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.kata.spring.boot_security.demo.model.Role;
 import ru.kata.spring.boot_security.demo.repositories.RoleRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -27,5 +28,10 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public List<Role> getAllRoles() {
         return roleRepository.findAll();
+    }
+
+    @Override
+    public List<Role> findByIds(List<Long> ids) {
+        return new ArrayList<>(roleRepository.findAllById(ids));
     }
 }

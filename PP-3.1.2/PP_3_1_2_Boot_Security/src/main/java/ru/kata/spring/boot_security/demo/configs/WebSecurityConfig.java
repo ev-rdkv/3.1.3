@@ -39,11 +39,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureUrl("/auth/login?error")
                 .and()
                 .logout().permitAll()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "POST"))
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)
                 .deleteCookies("JSESSIONID")
-                .logoutSuccessUrl("/");
+                .logoutSuccessUrl("/auth/login");
     }
 
     @Override
