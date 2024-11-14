@@ -10,9 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.repositories.UserRepository;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
-import java.util.Optional;
 
 
 @Service
@@ -57,23 +55,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     @Transactional
     public void updateUser(User user, Long id) {
-
-        Optional<User> optionalExistingUser = userRepository.findById(user.getId());
-
-        User existingUser = optionalExistingUser.get();
-        existingUser.setUsername(user.getUsername());
-
-        if (!optionalExistingUser.isPresent()) {
-            throw new EntityNotFoundException("User not found");
-        }
-        if (!user.getPassword().isEmpty()) {
-            existingUser.setPassword(passwordEncoder.encode(user.getPassword()));
-        }
-        if (!user.getRole().isEmpty()) {
-            existingUser.setRole(user.getRole());
-        }
-        existingUser.setAge(user.getAge());
-        userRepository.save(existingUser);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setId(id);
+        userRepository.save(user);
     }
 
     @Override

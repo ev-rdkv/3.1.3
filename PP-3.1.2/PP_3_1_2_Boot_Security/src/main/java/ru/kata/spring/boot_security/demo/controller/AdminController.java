@@ -57,9 +57,15 @@ public class AdminController {
     }
 
     @PostMapping("/update_user")
-    public String updateUser(@ModelAttribute User user, @RequestParam Long id, Model model) {
+    public String updateUser(@ModelAttribute User user, @RequestParam Long id, @RequestParam("roles") List<Long> roleIds, Model model) {
         user.setId(id);
-        userService.updateUser(user, id);
+        try {
+            List<Role> roles = roleService.findByIds(roleIds);
+            user.setRole(roles);
+            userService.updateUser(user, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return "redirect:/admin";
     }
 
